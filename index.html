@@ -3,10 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Termux Documentation Web</title>
+<title>Termux Documentation Portal</title>
 
 <style>
-
 *{
 margin:0;
 padding:0;
@@ -21,7 +20,7 @@ font-family:Segoe UI,Arial,sans-serif;
 line-height:1.7;
 }
 
-/* NAVBAR */
+/* NAV */
 nav{
 position:sticky;
 top:0;
@@ -76,13 +75,14 @@ margin-top:15px;
 color:#8b949e;
 }
 
-/* CARD */
+/* CONTAINER */
 .container{
 max-width:1100px;
 margin:auto;
 padding:20px;
 }
 
+/* CARD */
 .card{
 background:#161b22;
 padding:25px;
@@ -97,7 +97,10 @@ transform:scale(1.01);
 box-shadow:0 0 20px rgba(0,255,136,0.2);
 }
 
-h2{color:#00ff88;margin-bottom:15px;}
+h2{
+color:#00ff88;
+margin-bottom:15px;
+}
 
 /* GRID */
 .grid{
@@ -112,7 +115,7 @@ padding:15px;
 border-radius:10px;
 }
 
-/* BUTTON */
+/* TOOLS */
 .tools-grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
@@ -162,7 +165,7 @@ color:#8b949e;
 <body>
 
 <nav>
-<span>TERMUX WEB</span>
+<span>TERMUX PORTAL</span>
 <div>
 <a href="#about">About</a>
 <a href="#tools">Tools</a>
@@ -174,12 +177,11 @@ color:#8b949e;
 
 <svg class="logo" viewBox="0 0 100 100">
 <rect x="10" y="10" width="80" height="80" rx="12" fill="#00ff88"/>
-<path d="M30 30 L55 50 L30 70"
-stroke="#000" stroke-width="8" fill="none"/>
+<path d="M30 30 L55 50 L30 70" stroke="#000" stroke-width="8" fill="none"/>
 <line x1="60" y1="70" x2="78" y2="70" stroke="#000" stroke-width="8"/>
 </svg>
 
-<h1 id="title"></h1>
+<h1 id="title">TERMUX DOCUMENTATION PORTAL</h1>
 <p class="subtitle">Linux Environment & Terminal Emulator for Android</p>
 
 </header>
@@ -189,9 +191,36 @@ stroke="#000" stroke-width="8" fill="none"/>
 <!-- ABOUT -->
 <div class="card" id="about">
 <h2>Apa Itu Termux?</h2>
+
 <p>
-Termux adalah terminal Linux di Android yang memungkinkan kamu menjalankan command Linux, bahasa pemrograman, server lokal, dan tools development langsung dari HP.
+Termux adalah aplikasi terminal emulator yang menyediakan lingkungan Linux lengkap di Android. Dengan ini pengguna bisa menjalankan command Linux, install package, menjalankan script, dan belajar sistem operasi langsung dari HP tanpa komputer.
 </p>
+
+<br>
+
+<p>
+Termux mendukung banyak tools seperti Python, Git, Node.js, PHP, SSH, dan berbagai utilities Linux lainnya. Aplikasi ini sangat cocok untuk belajar programming, networking, dan system administration.
+</p>
+
+<br>
+
+<p>
+Dengan Termux, HP kamu bisa berubah jadi mini Linux server yang bisa digunakan untuk belajar, eksperimen, dan pengembangan project.
+</p>
+
+<br>
+
+<h2>Fungsi & Kelebihan</h2>
+
+<ul>
+<li>Menjalankan Linux command di Android</li>
+<li>Install tools developer (Python, Git, Node.js)</li>
+<li>Bisa bikin web server lokal</li>
+<li>Support SSH remote server</li>
+<li>Bisa install distro Linux (Ubuntu, Debian, dll)</li>
+<li>Gratis dan open-source</li>
+</ul>
+
 </div>
 
 <!-- TOOLS -->
@@ -212,42 +241,29 @@ Termux adalah terminal Linux di Android yang memungkinkan kamu menjalankan comma
 
 <!-- DISTRO -->
 <div class="card" id="distro">
-<h2>Linux Distro</h2>
+<h2>Linux Distro di Termux</h2>
 
 <div class="grid">
 <div class="item">Ubuntu</div>
 <div class="item">Debian</div>
 <div class="item">Arch Linux</div>
 <div class="item">Fedora</div>
-<div class="item">Alpine</div>
+<div class="item">Alpine Linux</div>
 <div class="item">Kali Linux</div>
 </div>
+
 </div>
 
 </div>
 
 <footer>
-<b>TERMUX WEB 2.0</b><br><br>
+<b>TERMUX PORTAL</b><br><br>
 Powered By Termux Community<br>
-Designed By Nathan NTA<br><br>
-© 2026
+Designed & Developed By Nathan NTA<br><br>
+© 2026 Nathan NTA. All Rights Reserved.
 </footer>
 
 <script>
-
-/* typing effect */
-let text="TERMUX DOCUMENTATION WEB";
-let i=0;
-function type(){
-if(i<text.length){
-document.getElementById("title").innerHTML+=text.charAt(i);
-i++;
-setTimeout(type,80);
-}
-}
-type();
-
-/* tools */
 function show(tool){
 
 const data={
@@ -263,14 +279,16 @@ npm init -y`,
 
 php:`php -S localhost:8080`,
 
-nano:`nano file.txt`,
+nano:`nano file.txt
+CTRL+O save
+CTRL+X exit`,
 
-ssh:`ssh user@ip`
+ssh:`ssh user@ip
+ssh-keygen`
 };
 
 document.getElementById("codeBox").innerText=data[tool];
 }
-
 </script>
 
 </body>
