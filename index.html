@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Termux Documentation Web</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+body{
+background:#0d1117;
+color:#e6edf3;
+font-family:Segoe UI,Arial,sans-serif;
+line-height:1.7;
+}
+
+/* NAVBAR */
+nav{
+position:sticky;
+top:0;
+background:#161b22;
+padding:15px 20px;
+border-bottom:2px solid #00ff88;
+display:flex;
+justify-content:space-between;
+align-items:center;
+z-index:999;
+}
+
+nav span{
+color:#00ff88;
+font-weight:bold;
+}
+
+nav a{
+color:#8b949e;
+margin-left:15px;
+text-decoration:none;
+}
+
+nav a:hover{
+color:#00ff88;
+}
+
+/* HEADER */
+header{
+text-align:center;
+padding:60px 20px;
+}
+
+.logo{
+width:120px;
+height:120px;
+margin:auto;
+animation:float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+0%,100%{transform:translateY(0)}
+50%{transform:translateY(-10px)}
+}
+
+h1{
+color:#00ff88;
+margin-top:15px;
+}
+
+.subtitle{
+color:#8b949e;
+}
+
+/* CARD */
+.container{
+max-width:1100px;
+margin:auto;
+padding:20px;
+}
+
+.card{
+background:#161b22;
+padding:25px;
+margin-bottom:20px;
+border-radius:12px;
+border:1px solid rgba(0,255,136,0.2);
+transition:0.3s;
+}
+
+.card:hover{
+transform:scale(1.01);
+box-shadow:0 0 20px rgba(0,255,136,0.2);
+}
+
+h2{color:#00ff88;margin-bottom:15px;}
+
+/* GRID */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:15px;
+}
+
+.item{
+background:#21262d;
+padding:15px;
+border-radius:10px;
+}
+
+/* BUTTON */
+.tools-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+gap:10px;
+}
+
+.tools-grid button{
+background:#00ff88;
+color:#000;
+border:none;
+padding:15px;
+font-weight:bold;
+border-radius:10px;
+cursor:pointer;
+transition:0.2s;
+}
+
+.tools-grid button:hover{
+transform:scale(1.05);
+box-shadow:0 0 10px #00ff88;
+}
+
+/* CODE BOX */
+#codeBox{
+background:#000;
+color:#00ff88;
+padding:15px;
+margin-top:15px;
+border-radius:10px;
+white-space:pre-wrap;
+min-height:160px;
+}
+
+/* FOOTER */
+footer{
+background:#161b22;
+padding:30px;
+text-align:center;
+border-top:2px solid #00ff88;
+margin-top:30px;
+color:#8b949e;
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+<span>TERMUX WEB</span>
+<div>
+<a href="#about">About</a>
+<a href="#tools">Tools</a>
+<a href="#distro">Distro</a>
+</div>
+</nav>
+
+<header>
+
+<svg class="logo" viewBox="0 0 100 100">
+<rect x="10" y="10" width="80" height="80" rx="12" fill="#00ff88"/>
+<path d="M30 30 L55 50 L30 70"
+stroke="#000" stroke-width="8" fill="none"/>
+<line x1="60" y1="70" x2="78" y2="70" stroke="#000" stroke-width="8"/>
+</svg>
+
+<h1 id="title"></h1>
+<p class="subtitle">Linux Environment & Terminal Emulator for Android</p>
+
+</header>
+
+<div class="container">
+
+<!-- ABOUT -->
+<div class="card" id="about">
+<h2>Apa Itu Termux?</h2>
+<p>
+Termux adalah terminal Linux di Android yang memungkinkan kamu menjalankan command Linux, bahasa pemrograman, server lokal, dan tools development langsung dari HP.
+</p>
+</div>
+
+<!-- TOOLS -->
+<div class="card" id="tools">
+<h2>Tools Populer</h2>
+
+<div class="tools-grid">
+<button onclick="show('python')">Python</button>
+<button onclick="show('git')">Git</button>
+<button onclick="show('node')">Node.js</button>
+<button onclick="show('php')">PHP</button>
+<button onclick="show('nano')">Nano</button>
+<button onclick="show('ssh')">SSH</button>
+</div>
+
+<pre id="codeBox">Klik tools untuk lihat command...</pre>
+</div>
+
+<!-- DISTRO -->
+<div class="card" id="distro">
+<h2>Linux Distro</h2>
+
+<div class="grid">
+<div class="item">Ubuntu</div>
+<div class="item">Debian</div>
+<div class="item">Arch Linux</div>
+<div class="item">Fedora</div>
+<div class="item">Alpine</div>
+<div class="item">Kali Linux</div>
+</div>
+</div>
+
+</div>
+
+<footer>
+<b>TERMUX WEB 2.0</b><br><br>
+Powered By Termux Community<br>
+Designed By Nathan NTA<br><br>
+© 2026
+</footer>
+
+<script>
+
+/* typing effect */
+let text="TERMUX DOCUMENTATION WEB";
+let i=0;
+function type(){
+if(i<text.length){
+document.getElementById("title").innerHTML+=text.charAt(i);
+i++;
+setTimeout(type,80);
+}
+}
+type();
+
+/* tools */
+function show(tool){
+
+const data={
+python:`python
+print("Hello World")`,
+
+git:`git clone repo
+git status
+git add .`,
+
+node:`node app.js
+npm init -y`,
+
+php:`php -S localhost:8080`,
+
+nano:`nano file.txt`,
+
+ssh:`ssh user@ip`
+};
+
+document.getElementById("codeBox").innerText=data[tool];
+}
+
+</script>
+
+</body>
+  </html>
